@@ -1,0 +1,17 @@
+State:
+There are lists named v_walls and h_walls in class Board that store vertical and horizontal walls that are set on the board.
+There is a class called Player that stores position of the player (x, y) and the x that wishes to reach. Each player can have a mode or u mode, a mode means the agent plays and u modes means the users plays.
+Action:
+each action can be (x, y) or (x, y, v) or (x, y, h)
+(x, y): move to (x, y)
+(x, y, v): set vertical wall on (x, y)
+(x, y, h): set horizontal wall on (x, y)
+The function valid_move in class Player checks if the move is valid.
+The function is_blocked in class Player checks if setting a wall blocks the player movement.
+The function get_actions in Agent first checks all possible moves and adds the valid ones to the actions list. Then checks all possible walls and adds the ones that don't block movement of any player.
+Minimax / Alpha_Beta:
+They are implemented with depth 2 and check if one action from all possible actions is taken what heuristic it results and return the best one.
+Heuristic:
+This function considers the position of player and its opponent, remained walls for the player, and distance of each player from center.
+The function distance returns the shortest path for a player to win considering the walls.
+heuristic = -12 * player's shortest path + 10 * opponent's shortest path + 0.5 * (opponent's distance from center - player's distance from center) + 0.3 * remained walls
